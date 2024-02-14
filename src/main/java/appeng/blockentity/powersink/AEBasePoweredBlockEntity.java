@@ -84,7 +84,7 @@ public abstract class AEBasePoweredBlockEntity extends AEBaseInvBlockEntity
                 Math.max(0.0, this.getFunnelPowerDemand(externalUnit.convertTo(PowerUnits.AE, maxPowerRequired))));
     }
 
-    protected double getFunnelPowerDemand(double maxRequired) {
+    protected double getFunnelPowerDemand(double maxRequired) {//how much power neeed for the block to be full power
         return this.getInternalMaxPower() - this.getInternalCurrentPower();
     }
 
@@ -111,6 +111,13 @@ public abstract class AEBasePoweredBlockEntity extends AEBaseInvBlockEntity
         return this.getInternalMaxPower();
     }
 
+    @Override
+    public final double getInternalPowerExcess(PowerUnits externalUnit, double maxPowerRequired) {
+        return externalUnit.convertTo(PowerUnits.AE,
+                Math.min(this.getAECurrentPower(),    PowerUnits.AE.convertTo(externalUnit, maxPowerRequired));
+    
+    }
+                
     @Override
     public final double getAECurrentPower() {
         return this.getInternalCurrentPower();
