@@ -56,12 +56,12 @@ public class ForgeEnergyAdapter implements IEnergyStorage {
 
     @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
-        return 0;
+        return 0;//stuff needed here
     }
 
     @Override
     public boolean canExtract() {
-        return false;
+        return false;//soon to be true
     }
 
     @Override
