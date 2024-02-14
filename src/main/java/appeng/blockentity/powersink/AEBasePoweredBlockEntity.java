@@ -127,6 +127,15 @@ public abstract class AEBasePoweredBlockEntity extends AEBaseInvBlockEntity
     }
 
     @Override
+    public final double extractInternalPower(PowerUnits input, double amt, Actionable mode) {
+        return PowerUnits.AE.convertTo(input, this.sharePowerFromStorage(input.convertTo(PowerUnits.AE, amt), mode));
+    }
+
+   protected double sharePowerFromStorage(double power, Actionable mode) {
+        return this.extractAEPower(power, mode);
+    }
+                
+    @Override
     public final double extractAEPower(double amt, Actionable mode, PowerMultiplier multiplier) {
         return multiplier.divide(this.extractAEPower(multiplier.multiply(amt), mode));
     }
