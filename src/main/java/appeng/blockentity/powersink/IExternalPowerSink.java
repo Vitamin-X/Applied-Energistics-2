@@ -33,6 +33,7 @@ public interface IExternalPowerSink extends IAEPowerStorage {
      * @return The unused amount, which could not be inserted into the sink.
      */
     double injectExternalPower(PowerUnits externalUnit, double amount, Actionable mode);
+    double extractInternalPower(PowerUnits externalUnit, double amount, Actionable mode);
 
     /**
      * @param externalUnit     The {@link PowerUnits} used by the input
@@ -41,4 +42,8 @@ public interface IExternalPowerSink extends IAEPowerStorage {
      */
     double getExternalPowerDemand(PowerUnits externalUnit, double maxPowerRequired);
 
+    /**
+    *gets external demand of AE power
+    */
+    double getInternalPowerDemand(PowerUnits externalUnit, double maxPowerRequired);
 }
