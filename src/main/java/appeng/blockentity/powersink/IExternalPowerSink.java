@@ -45,5 +45,5 @@ public interface IExternalPowerSink extends IAEPowerStorage {
     /**
     *gets external demand of AE power
     */
-    double getInternalPowerDemand(PowerUnits externalUnit, double maxPowerRequired);
+    double getInternalPowerExcess(PowerUnits externalUnit, double maxPowerRequired);
 }
